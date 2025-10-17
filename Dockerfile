@@ -16,5 +16,8 @@ ENV TS_STATE_DIR=/var/lib/tailscale \
     TS_AUTH_ONCE=true \
     TS_SERVE_CONFIG=/config/serve.json
 
-# Run generator, then start tailscaled
-ENTRYPOINT ["/bin/sh", "-c", "npx tsx /app/src/index.ts && exec tailscaled --state=/var/lib/tailscale/tailscaled.state"]
+ENTRYPOINT ["/bin/sh", "-c", "\
+  echo '✅ Generating serve.json...' && \
+  mkdir -p /config && cd /app && npm run generate-serve-config && \
+  echo '🚀 Handing off to Tailscale base entrypoint...' && \
+  exec /usr/local/bin/docker-entrypoint.sh tailscaled"]
