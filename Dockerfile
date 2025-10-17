@@ -9,7 +9,7 @@ FROM tailscale/tailscale:latest
 
 COPY --from=builder /app /app
 
-RUN apk add --no-cache nodejs npm && npm install -g tsx
+RUN apk add --no-cache nodejs npm wget && npm install -g tsx
 
 COPY scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
