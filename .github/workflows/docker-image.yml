@@ -22,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: mountmike/ts-serve-sidecar:latest
+          tags: mountmike/ts-serve-sidecar:latest mountmike/ts-serve-sidecar:${{ github.run_number }}
