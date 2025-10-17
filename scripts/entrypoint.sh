@@ -2,7 +2,8 @@
 set -e
 
 echo "✅ Generating serve config..."
-npx tsx /app/src/index.ts
+cd /app
+npm run generate-serve-config
 
 if [ -f "$TS_SERVE_CONFIG" ]; then
   echo "Found serve config at $TS_SERVE_CONFIG"
