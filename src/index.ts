@@ -3,7 +3,6 @@ import fs from "fs";
 const { env } = process;
 
 const port = env.SIDECAR_SERVE_PORT;
-
 if (!port) {
     console.error("❌ SIDECAR_SERVE_PORT is required.");
     process.exit(1);
@@ -15,9 +14,7 @@ const path = env.SIDECAR_SERVE_PATH || "/";
 const address = env.SIDECAR_SERVE_ADDRESS || "http://127.0.0.1";
 
 const config = {
-    TCP: {
-        "443": { HTTPS: httpsEnabled },
-    },
+    TCP: { "443": { HTTPS: httpsEnabled } },
     Web: {
         "${TS_CERT_DOMAIN}:443": {
             Handlers: {
