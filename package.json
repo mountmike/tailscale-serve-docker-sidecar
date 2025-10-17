@@ -1,0 +1,17 @@
+{
+    "name": "ts-serve-sidecar",
+    "version": "1.0.0",
+    "description": "Docker image for using tailscale as a sidecar to also serve a network port (app) with magic DNS and optionally funnel to the wider web",
+    "author": "mountmike",
+    "type": "module",
+    "dependencies": {
+        "tsx": "^4.20.6"
+    },
+    "devDependencies": {
+        "@total-typescript/tsconfig": "^1.0.4",
+        "@types/node": "^24.8.0"
+    },
+    "scripts": {
+        "generate-serve-config": "tsx src/index.ts"
+    }
+}
