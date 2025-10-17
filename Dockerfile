@@ -13,8 +13,7 @@ RUN apk add --no-cache nodejs npm && npm install -g tsx
 
 ENV TS_STATE_DIR=/var/lib/tailscale \
     TS_USERSPACE=false \
-    TS_AUTH_ONCE=true \
     TS_SERVE_CONFIG=/config/serve.json
 
 # Run generator, then start tailscaled
-ENTRYPOINT ["/bin/sh", "-c", "npm tsx /app/src/index.ts && exec tailscaled --state=/var/lib/tailscale/tailscaled.state"]
+ENTRYPOINT ["/bin/sh", "-c", "npx tsx /app/src/index.ts && exec tailscaled --state=/var/lib/tailscale/tailscaled.state"]
